@@ -1,0 +1,37 @@
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+.kotlin/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 생성물 (baseline.json은 커밋 대상)
+testdata/golden/snapshots/kotlin.json
+testdata/golden/snapshots/scratch.json
+
+# 도구용 런타임
+node_modules/
+__pycache__/
+
+# 로컬 환경 파일
+.env
+.env.*
+*.local.json
+.claude/settings.local.json
+local.properties
+
+# 검수 결과 중 개인 식별 정보 (2단계 스타일리스트 검수, 피검사자 정보)
+# 규약: private/ 아래 또는 이름에 .private. 가 들어간 파일은 올리지 않는다.
+**/private/
+*.private.*
+testdata/review/raw/
