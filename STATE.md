@@ -1,6 +1,6 @@
 # STATE
 
-- 마지막 작업 (2026-09-22): 1-1 팔레트 확정. assets/rules/palette_v1.json(45색, neutral 16), docs/RULES_SCHEMA.md 팔레트 절·명명 절, COLOR_SPEC §1.4를 태그 기준으로 수정, PLAN 미결 정리. 커밋 "feat: 팔레트 v1 (45색) + RULES_SCHEMA 팔레트 절" 후 푸시.
-- 다음 할 일: 사용자 지시 후 harmony_rules_v1.json + RULES_SCHEMA §3. 시작 전에 PLAN 미결 "배색 규칙" 항목(hue 구간 부호 유무, 전략별 목표 구역, 채도 관계, 서브/포인트 규칙, 랭킹 가중치)과 규칙 ID·진단 식별자·에러 코드 명명 규칙을 한꺼번에 질문한다. 무채색 임계 C*<5는 이 파일에 넣는다.
+- 마지막 작업 (2026-09-22): prototype/palette.html(팔레트 스와치 뷰어, palette_v1.json fetch, 정렬 3종·배경 6종·L* 분포) 추가. CLAUDE.md 최우선 규칙에 환경 경계 항목(폴더 밖 영향·프로세스 종료·포트 점유·전역 설정 금지) 추가. CONTRACT §3·COLOR_SPEC §6에 극좌표 표기 예외 명시. PLAN 미결에 "팔레트 — 규칙 적용 후 확인" 3건. 커밋 "feat: 팔레트 스와치 뷰어" 후 푸시.
+- 다음 할 일: 사용자가 스와치를 브라우저로 확인한 뒤 지시 → harmony_rules_v1.json + RULES_SCHEMA §3. 시작 전에 PLAN 미결 "배색 규칙" 항목과 규칙 ID·진단 식별자·에러 코드 명명 규칙을 한꺼번에 질문. 무채색 임계 C*<5는 이 파일에 넣는다.
 - 막힌 것: 없음.
-- 참고: face_constraints 단계로 이연된 값 — 저채도 임계(후보 C* 20), ΔL 하한, 피부 색상대 회피 범위. camel(neutral, C* 31, h° 74)이 피부 색상대 제약과 충돌할 수 있음을 그때 확인. Gradle 빌드는 1-2에서.
+- 참고: 확인용 서버는 사용자가 직접 띄운다(내가 띄우지 않는다). 8000 사용 중이면 다른 포트. face_constraints로 이연된 값 — 저채도 임계(후보 C* 20), ΔL 하한, 피부 색상대 회피 범위. camel(neutral, C* 31, h° 74)과 피부 색상대 제약의 충돌 여부를 그때 확인. Gradle 빌드는 1-2에서.

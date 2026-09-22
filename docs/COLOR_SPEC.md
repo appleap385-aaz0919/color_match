@@ -129,3 +129,5 @@ CIEDE2000은 구현 오류가 흔하다. Sharma, Wu, Dalal (2005)의 테스트 �
 
 뷰어(prototype/)는 색 계산을 하지 않는다. 필요한 hex, Lab, LCh, Δ값은 모두 Kotlin이 결과 JSON에 담아 보낸다.
 같은 공식을 JS로 다시 쓰는 것은 금지다 (엔진은 하나).
+유일한 예외: 팔레트 스와치(`prototype/palette.html`)가 저장된 Lab에서 C* = √(a²+b²), h° = atan2(b, a)를 표시용으로 계산하는 것.
+이는 저장값의 극좌표 표기이며 결과에 영향을 주지 않는다. sRGB↔Lab 등 색 공간 변환과 배색 로직은 여전히 금지다.

@@ -18,6 +18,11 @@
 - 팔레트 색 구성, 임계값 등 튜닝 대상 값
 - 기존에 합의된 내용과 다르게 가야 한다고 판단될 때
 - 스펙이 모호하거나 해석이 갈릴 때
+- 이 프로젝트 폴더 밖에 영향을 주는 모든 행위
+- 실행 중인 프로세스나 서비스를 종료·재시작하는 것
+- 이미 사용 중인 포트를 점유하려 하는 것
+- 전역 설정 변경, 시스템 전역 패키지 설치
+- 프로젝트 폴더 밖의 파일 생성·수정·삭제
 
 묻지 않고 진행해도 되는 것:
 - 이미 승인된 범위 안에서의 구현
@@ -28,6 +33,8 @@
 - "일단 이렇게 해두고 나중에 바꾸자"
 - 모르는 값을 추정해서 채우기. 비워두고 질문한다.
 - 선택지가 여럿일 때 하나를 골라 진행하기. 비용 비교와 추천안을 내고 사용자가 결정한다.
+- 남이 쓰는 자원(포트, 프로세스, 파일)을 내 작업을 위해 치우는 것.
+  충돌이 나면 비켜 가거나 멈추고 묻는다. 치우지 않는다.
 
 ## 절대 규칙 (core/)
 
@@ -55,7 +62,8 @@ core/rules      규칙 로딩·검증, 조화 판정, 제약 필터, 후보 평�
                 → contract, color, kotlinx-serialization-json
 assets/rules/   규칙 JSON 3종 (단일 진실). 튜닝은 여기서만
 testdata/       golden/cases.json(입력), golden/snapshots/(결과), scratch/(임시 입력)
-prototype/      렌더링 전용 뷰어. 색 계산 없음. 입력 데이터 두지 않음
+prototype/      렌더링 전용. index.html = 결과 뷰어, palette.html = 팔레트 스와치 (별개 파일)
+                색 계산 없음 (예외: 저장된 Lab의 C*/h° 극좌표 표기만). 입력 데이터 두지 않음
 tools/          golden-diff.mjs (스냅샷 비교)
 ```
 
@@ -72,6 +80,7 @@ node tools/golden-diff.mjs testdata/golden/snapshots/baseline.json testdata/gold
                                         baseline 대비 변경 항목 출력 (pass/fail 아님)
 python -m http.server 8000              루트에서 실행 → http://localhost:8000/prototype/
                                         뷰어는 수동 새로고침 (자동 갱신 없음)
+                                        8000이 사용 중이면 다른 포트를 쓴다. 점유한 프로세스를 종료하지 않는다
 ```
 
 Gradle 빌드 파일은 1-2 단계에서 만든다. 그 전까지 gradlew 명령은 동작하지 않는다.

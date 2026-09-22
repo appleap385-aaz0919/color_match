@@ -108,7 +108,7 @@ testdata/scratch/cases.json ─▶ GoldenSnapshotMain ─▶ Recommend.run ─�
 | `core/rules` | 규칙 JSON 로딩·검증, 조화 판정, 얼굴 제약, 후보 평가, 세트 조합·랭킹 | contract, color, kotlinx-serialization-json | 파일·네트워크·안드로이드·java.*, 하드코딩 파라미터, println |
 | `assets/rules/` | 규칙 JSON 3종. 튜닝 값의 단일 진실 | — | 코드에서 경로로 직접 열기 |
 | `testdata/` | golden(입력·스냅샷), scratch(임시 입력) | — | 프로덕션 코드가 참조 |
-| `prototype/` | 결과 JSON 렌더링 전용 뷰어 | 스냅샷 JSON | 색 계산, 규칙 로직, 입력 데이터 보관 |
+| `prototype/` | 렌더링 전용. `index.html` = 결과 뷰어, `palette.html` = 팔레트 스와치 (별개 파일) | 스냅샷 JSON, 팔레트 JSON | 색 계산, 규칙 로직, 입력 데이터 보관. 유일한 예외: 저장된 Lab에서 C* = √(a²+b²), h° = atan2(b, a)를 표시용으로 계산하는 것. 색 공간 변환은 금지 |
 | `tools/` | 스냅샷 diff 등 개발 도구 | core 가능 | core가 tools를 의존 |
 
 공통 금지 (core/* 전부): 얼굴 이미지·픽셀 데이터를 저장하거나 diagnostics에 넣지 않는다.
